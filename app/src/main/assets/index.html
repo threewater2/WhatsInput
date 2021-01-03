@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="whatsinput" lang="zh">
+<head>
+  <meta charset="utf-8">
+  <title>WhatsInput</title>
+  <script src="app/libs/angular.min.js"></script>
+  <script src="app/libs/angular-ui.min.js"></script>
+  <script type="text/javascript" src="app/app.js"></script>
+  <script type="text/javascript" src="app/service.js"></script>
+  <script type="text/javascript" src="app/controller.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="wp">
+  <div ng-controller="EditorCtrl">
+    <div class="status" ng-show="Status">{{Status}}</div>
+    <h1 class="title">WhatsInput</h1>
+
+    <div class="editoer">
+      <textarea ng-disabled="editor.disabled" id="cnt" ng-change="change()" ng-model="editor.text"
+                ui-keydown="{'enter tab':'keypressCallback($event)'}"></textarea>
+    </div>
+
+    <footer class="bottom">
+      <p><span class="kbd">Shift</span>+<span class="kbd">Enter</span> to start a new line, <span class="kbd">Enter</span> to send</p>
+    </footer>
+
+    <!--<div class="actions" ng-controller="KeyboardCtrl">
+      <button class="g-button" ng-repeat="key in keys" type="button" ng-click="key_click(key.android_code)">{{key.name}}</button>
+    </div>-->
+  </div>
+</div>
+</body>
+</html>
