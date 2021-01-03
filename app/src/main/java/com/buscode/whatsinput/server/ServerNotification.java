@@ -1,4 +1,4 @@
-package com.sand.airinput.server;
+package com.buscode.whatsinput.server;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -110,8 +110,7 @@ public class ServerNotification {
         }
 
         public Builder setLatestEventInfo(String contentTitle, String contentText, PendingIntent contentIntent) {
-
-            mNotification.setLatestEventInfo(mContext, contentTitle, contentText, contentIntent);
+//            mNotification.setLatestEventInfo(mContext, contentTitle, contentText, contentIntent);
             return this;
         }
 
