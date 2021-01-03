@@ -2,11 +2,12 @@ package com.buscode.whatsinput.server;
 
 import org.apache.log4j.Logger;
 import org.java_websocket.WebSocket;
-import org.java_websocket.server.WebSocketServer;
 import org.java_websocket.handshake.ClientHandshake;
+import org.java_websocket.server.WebSocketServer;
 
 import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
+import java.util.Collection;
 import java.util.Set;
 
 /**
@@ -44,7 +45,7 @@ public class ExWebSocketServer extends WebSocketServer{
     }
     public void sendMessageToAllWSClient(final String message) {
 
-        final Set<WebSocket> conns = connections();
+        final Collection<WebSocket> conns = getConnections();
         if (conns == null || conns.size() == 0) {
             logger.debug("sendMessageToAllWSClient: Empty Clients");
             return;
@@ -125,6 +126,11 @@ public class ExWebSocketServer extends WebSocketServer{
         if (mClientLister != null) {
             mClientLister.onError(conn, ex);
         }
+    }
+
+    @Override
+    public void onStart() {
+
     }
 }
 
